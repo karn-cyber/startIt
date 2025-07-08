@@ -6,4 +6,4 @@ const LoginComponent = () => {
   )
 }
 
-export default LoginComponent
+export default LoginComponent 
