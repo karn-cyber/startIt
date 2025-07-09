@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import {toast} from "react-toastify";
 // import navigate from '../helpers/useNavigate';
 
-export default function LoginComponent() {
+export default function RegisterComponent() {
 
   let navigate = useNavigate();
   const [credentials, setCredentials] = useState({
@@ -38,8 +38,8 @@ export default function LoginComponent() {
 
       <main className="auth-container">
         <div className="auth-card">
-          <h1 className="auth-title">Sign in</h1>
-          <p className="auth-subtitle">Step into the world of opportunities</p>
+          <h1 className="auth-title">Register to Startit</h1>
+          <p className="auth-subtitle">Make the most of your professional life</p>
 
           <input
             className="auth-input"
