@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import GoogleButton from 'react-google-button'
-import { LoginAPI, GoogleSignAPI } from '../api/AuthAPI';
+import { RegisterAPI, GoogleSignAPI } from '../api/AuthAPI';
 import "../Sass/LoginComponent.scss";
 import startitSmall from "../assets/startitSmall.svg";
+import startitLogoFull from '/Users/neelanshu./startit/src/assets/StartitLogoFull.svg'
 import { useNavigate } from 'react-router-dom';
 import {toast} from "react-toastify";
 // import navigate from '../helpers/useNavigate';
@@ -17,23 +18,25 @@ export default function RegisterComponent() {
 
   const login = async () => {
     try {
-      let res = await LoginAPI(credentials.email, credentials.password);
-      toast.success("Signed In to StartIt successfully!");
+      let res = await RegisterAPI(credentials.email, credentials.password);
+      toast.success("Accout Created successfully!");
+      navigate("/homepage");
     } catch (err) {
-      console.error("Login Failed:", err.message);
-      toast.error("Login failed. Please check your credentials.");
+      console.error("Account Creation Failed", err.message);
+      toast.error("Account Creation Failed");
     }
   };
 
   const googleSignIn = () => {
     let response = GoogleSignAPI();
     console.log(response);
+    navigate("/homepage");
   };
 
   return (
     <div className="auth-page">
       <header className="auth-header">
-        <img src={startitSmall} alt="StartIt Logo" className="logo" />
+        <img src={startitLogoFull} alt="StartIt Logo" className="logo" />
       </header>
 
       <main className="auth-container">
@@ -52,19 +55,19 @@ export default function RegisterComponent() {
           <input
             className="auth-input"
             type="password"
-            placeholder="Password"
+            placeholder="Password (6 or more characters)"
             value={credentials.password}
             onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
           />
 
-          <button className="auth-button" onClick={login}>Sign In</button>
+          <button className="auth-button" onClick={login}>Join</button>
 
           
           <hr class = "hr-text" data-content="or"/>
           <div className= "google-btn-container">
           <GoogleButton className= "google-btn" onClick={(googleSignIn)} />
           </div>
-          <p className="auth-footer">New to StartIt? <span className="signup-link" onClick={()=> navigate("/register")}>Join now</span></p>
+          <p className="auth-footer">Already on StartIt? <span className="signup-link" onClick={()=> navigate("/")}>Login Now</span></p>
         </div>
       
       </main>

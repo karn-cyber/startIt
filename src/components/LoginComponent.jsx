@@ -3,6 +3,7 @@ import GoogleButton from 'react-google-button'
 import { LoginAPI, GoogleSignAPI } from '../api/AuthAPI';
 import "../Sass/LoginComponent.scss";
 import startitSmall from "../assets/startitSmall.svg";
+import startitLogoFull from '/Users/neelanshu./startit/src/assets/StartitLogoFull.svg'
 import { useNavigate } from 'react-router-dom';
 import {toast} from "react-toastify";
 // import navigate from '../helpers/useNavigate';
@@ -19,6 +20,7 @@ export default function LoginComponent() {
     try {
       let res = await LoginAPI(credentials.email, credentials.password);
       toast.success("Signed In to StartIt successfully!");
+      navigate("/homepage");
     } catch (err) {
       console.error("Login Failed:", err.message);
       toast.error("Login failed. Please check your credentials.");
@@ -28,12 +30,13 @@ export default function LoginComponent() {
   const googleSignIn = () => {
     let response = GoogleSignAPI();
     console.log(response);
+    navigate("/homepage");
   };
 
   return (
     <div className="auth-page">
       <header className="auth-header">
-        <img src={startitSmall} alt="StartIt Logo" className="logo" />
+        <img src={startitLogoFull} alt="StartIt Logo" className="logo" />
       </header>
 
       <main className="auth-container">
