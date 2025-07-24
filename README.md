@@ -1,7 +1,7 @@
 # StartIt - The Future of Professional Networking
 
 <div align="center">
-  <img src="src/assets/images/startit-logo.png" alt="StartIt Logo" width="200"/>
+  <img src="src/assets/startitBig.svg" alt="StartIt Logo" width="200"/>
   
   [![React](https://img.shields.io/badge/React-18.0+-blue.svg)](https://reactjs.org/)
   [![Vite](https://img.shields.io/badge/Vite-4.0+-646CFF.svg)](https://vitejs.dev/)
