@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './index.scss';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleAboutClick = () => {
+    navigate('/about');
+  };
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -13,7 +20,7 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Company</h4>
             <ul>
-              <li><a href="#">About</a></li>
+              <li><a href="#" onClick={handleAboutClick}>About</a></li>
               <li><a href="#">Careers</a></li>
               <li><a href="#">Press</a></li>
             </ul>
@@ -36,7 +43,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 StartIt. All rights reserved.</p>
+          <p>&copy; 2025 StartIt. All rights reserved.</p>
         </div>
       </div>
     </footer>

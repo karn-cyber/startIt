@@ -35,15 +35,15 @@ const PostCard = ({posts}) => {
   };
 
   return (
-    <div className="post-card">
-        <span 
-          className="post-author" 
-          onClick={() => handleUserClick(posts.userEmail)}
-        >
-          {userName}
-        </span>
-        <p className="timestamp">{posts.timeStamp}</p>
-        <p className="status">{posts.status}</p>
+    <div className="post-card" id={`post-${posts.id}`}>
+      <span 
+        className="post-author" 
+        onClick={() => handleUserClick(posts.userEmail)}
+      >
+        {userName}
+      </span>
+      <p className="timestamp">{posts.timeStamp}</p>
+      <p className="status">{posts.status}</p>
     </div>
   )
 }

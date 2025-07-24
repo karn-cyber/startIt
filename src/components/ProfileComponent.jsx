@@ -13,6 +13,7 @@ const ProfileComponent = () => {
   const [userPosts, setUserPosts] = useState([]);
   const [profilePic, setProfilePic] = useState('');
   const [uploading, setUploading] = useState(false);
+  const [uploadingBanner, setUploadingBanner] = useState(false);
   const [about, setAbout] = useState('');
   const [education, setEducation] = useState([]);
   const [experience, setExperience] = useState([]);
@@ -42,13 +43,30 @@ const ProfileComponent = () => {
     if (!file) return;
     setUploading(true);
     const storage = getStorage();
-    const storageRef = ref(storage, `profilePics/${user.id}`);
+    const storageRef = ref(storage, `profilePics/${user.id}_${Date.now()}`);
     await uploadBytes(storageRef, file);
     const url = await getDownloadURL(storageRef);
     const userDoc = doc(firestore, 'users', user.id);
     await updateDoc(userDoc, { profilePic: url });
     setProfilePic(url);
     setUploading(false);
+  };
+
+  const handleBannerChange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setUploadingBanner(true);
+    const storage = getStorage();
+    const storageRef = ref(storage, `banners/${user.id}_${Date.now()}`);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    const userDoc = doc(firestore, 'users', user.id);
+    await updateDoc(userDoc, { bannerPic: url });
+    setUploadingBanner(false);
+    // Refresh user data
+    getCurrentUser((userData) => {
+      setUser(userData);
+    });
   };
 
   const handleAboutSave = async () => {
@@ -129,7 +147,23 @@ const ProfileComponent = () => {
     <div className="profile-linkedin-bg">
       <div className="profile-main-content">
         <div className="profile-banner-section">
-          <div className="profile-banner"></div>
+          <div 
+            className="profile-banner"
+            style={{
+              backgroundImage: user?.bannerPic ? `url(${user.bannerPic})` : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+            }}
+          >
+            <label className="banner-upload-btn">
+              {uploadingBanner ? '📤 Uploading...' : '📷 Edit banner'}
+              <input
+                type="file"
+                accept="image/*"
+                style={{ display: 'none' }}
+                onChange={handleBannerChange}
+                disabled={uploadingBanner}
+              />
+            </label>
+          </div>
           <div className="profile-photo-wrapper">
             <img
               src={profilePic || 'https://ui-avatars.com/api/?name=' + (user.name || 'User')}
@@ -137,7 +171,7 @@ const ProfileComponent = () => {
               className="profile-photo"
             />
             <label className="profile-photo-upload">
-              {uploading ? 'Uploading...' : 'Change Photo'}
+              {uploading ? '📤 Uploading...' : '📷 Change Photo'}
               <input
                 type="file"
                 accept="image/*"

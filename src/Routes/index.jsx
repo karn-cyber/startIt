@@ -7,6 +7,7 @@ import Profile from "../pages/Profile";
 import UserProfile from "../pages/UserProfile";
 import Connections from "../pages/Connections";
 import Jobs from "../pages/Jobs";
+import About from "../pages/About";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "jobs",
         element: <Jobs />,
+      },
+      {
+        path: "about",
+        element: <About />,
       },
     ],
   },
