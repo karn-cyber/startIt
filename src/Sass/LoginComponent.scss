@@ -152,3 +152,31 @@ body, html {
   .google-btn{
     width:300px !important;
   }
+
+@media (max-width: 600px) {
+  .auth-header {
+    padding: 12px 8px;
+  }
+  .auth-container {
+    padding: 10px 2px;
+  }
+  .auth-card {
+    max-width: 98vw;
+    padding: 18px 6px;
+  }
+  .auth-title {
+    font-size: 20px;
+  }
+  .auth-input {
+    width: 98%;
+    font-size: 13px;
+    padding: 10px 8px;
+  }
+  .auth-button {
+    font-size: 13px;
+    padding: 10px;
+  }
+  .google-btn {
+    width: 98vw !important;
+  }
+}

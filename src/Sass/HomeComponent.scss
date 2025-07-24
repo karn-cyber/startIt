@@ -4,3 +4,12 @@
     align-items: center;
 
 }
+@media (max-width: 600px) {
+  .home-component {
+    padding: 0 2px;
+  }
+  .post-status-main, .post-feed {
+    width: 100% !important;
+    padding: 0;
+  }
+}

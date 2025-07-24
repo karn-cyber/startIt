@@ -39,3 +39,33 @@
     right:40px;
     cursor:pointer;
   }
+
+@media (max-width: 900px) {
+  .topbar-main {
+    gap: 16px;
+    padding: 0 10px;
+  }
+  .topbar-icons {
+    gap: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .topbar-main {
+    height: 48px;
+    gap: 8px;
+    padding: 0 4px;
+  }
+  .logo-full {
+    height: 24px;
+  }
+  .topbar-icons {
+    gap: 6px;
+  }
+  .topbar-icon {
+    font-size: 18px;
+  }
+  .user-logo {
+    width: 28px;
+    right: 10px;
+  }
+}

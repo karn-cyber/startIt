@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import GoogleButton from 'react-google-button'
 import { RegisterAPI, GoogleSignAPI } from '../api/AuthAPI';
+import { postUserData } from '../api/FirestoreAPIs';
 import "../Sass/LoginComponent.scss";
 // import startitSmall from "../assets/startitSmall.svg";
 import startitLogoFull from '/Users/neelanshu./startit/src/assets/StartitLogoFull.svg'
@@ -19,6 +20,13 @@ export default function RegisterComponent() {
   const register = async () => {
     try {
       let res = await RegisterAPI(credentials.email, credentials.password);
+      // Save user info to Firestore users collection
+      if (res.user && credentials.name) {
+        postUserData({
+          email: credentials.email,
+          name: credentials.name,
+        });
+      }
       toast.success("Accout Created successfully!");
       localStorage.setItem("userEmail", res.user.email);
       navigate("/homepage");

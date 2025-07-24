@@ -32,3 +32,19 @@
     
 }
 
+@media (max-width: 600px) {
+  .post-card {
+    width: 98vw;
+    margin-top: 12px;
+    padding-bottom: 10px;
+  }
+  .status {
+    font-size: 13px;
+    margin: 8px 8px 0 8px;
+  }
+  .timestamp {
+    font-size: 10px;
+    margin: 10px 0 0 10px;
+  }
+}
+

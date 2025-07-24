@@ -1,5 +1,5 @@
 import { firestore } from '../firebaseConfig';
-import { addDoc, collection, onSnapshot } from 'firebase/firestore';
+import { addDoc, collection, onSnapshot, getDocs, updateDoc, doc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import {toast} from 'react-toastify';
 
 let dbRef = collection(firestore, "posts");
@@ -50,5 +50,42 @@ export const postUserData = (object) => {
       );
     });
   };
+  
+// --- CONNECTIONS FEATURE ---
+export const getAllUsers = async () => {
+  const snapshot = await getDocs(userRef);
+  return snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+};
+
+export const sendConnectionRequest = async (targetUserId, myEmail) => {
+  const targetDoc = doc(firestore, 'users', targetUserId);
+  await updateDoc(targetDoc, {
+    connectionRequests: arrayUnion(myEmail)
+  });
+};
+
+export const acceptConnectionRequest = async (targetUserId, myId, targetEmail, myEmail) => {
+  // Add each other to connections
+  const myDoc = doc(firestore, 'users', myId);
+  const targetDoc = doc(firestore, 'users', targetUserId);
+  await updateDoc(myDoc, {
+    connections: arrayUnion(targetEmail),
+    connectionRequests: arrayRemove(targetEmail)
+  });
+  await updateDoc(targetDoc, {
+    connections: arrayUnion(myEmail)
+  });
+};
+
+export const removeConnection = async (targetUserId, myId, targetEmail, myEmail) => {
+  const myDoc = doc(firestore, 'users', myId);
+  const targetDoc = doc(firestore, 'users', targetUserId);
+  await updateDoc(myDoc, {
+    connections: arrayRemove(targetEmail)
+  });
+  await updateDoc(targetDoc, {
+    connections: arrayRemove(myEmail)
+  });
+};
   
        

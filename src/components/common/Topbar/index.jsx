@@ -25,13 +25,16 @@ const Topbar = () => {
   const displayPopup = () => {
     setPopupVisible(!popupVisible);
   };
+  const closePopup = () => {
+    setPopupVisible(false);
+  };
   return (
 
     <>
     <div className="topbar-main">
     {popupVisible ? (
         <div className="popup-position">
-          <ProfilePopup />
+          <ProfilePopup closePopup={closePopup} />
         </div>
       ) : (
         <></>

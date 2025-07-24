@@ -14,13 +14,13 @@ export const LoginAPI = (email,password) => {
 };
 
 export const RegisterAPI = (email,password) => { 
-    try{
-    let response = createUserWithEmailAndPassword(auth,email,password);
-    return response;
-} catch (err) {
-    return err;
-    
-}
+        try{
+        let response = createUserWithEmailAndPassword(auth,email,password);
+        return response;
+    } catch (err) {
+        return err;
+        
+    }
 };
 
 export const GoogleSignAPI = () => {

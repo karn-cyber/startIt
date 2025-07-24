@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
-import Home from "../Pages/Home";
 import { getCurrentUser } from "../api/FirestoreAPIs";
 import Topbar from "../components/common/Topbar";
+import { Outlet } from "react-router-dom";
 
 export default function HomeLayout() {
   const [currentUser, setCurrentUser] = useState({});
@@ -12,7 +12,7 @@ export default function HomeLayout() {
   return (
     <div>
       <Topbar currentUser={currentUser} />
-      <Home currentUser={currentUser} />
+      <Outlet />
     </div>
   );
 }
