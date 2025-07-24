@@ -6,6 +6,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import './ProfileComponent.scss';
 import Loader from './common/Loader';
 import Footer from './common/Footer';
+import NewsSection from './common/NewsSection';
 
 const ProfileComponent = () => {
   const [user, setUser] = useState(null);
@@ -207,6 +208,7 @@ const ProfileComponent = () => {
             </div>
           </div>
           <div className="profile-right">
+            <NewsSection />
             <div className="profile-suggestions accent-card">
               <h4>People you may know</h4>
               <ul>

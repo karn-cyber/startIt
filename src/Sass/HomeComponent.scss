@@ -4,6 +4,38 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding-top: 24px;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  width: 100%;
+  max-width: 1128px;
+  padding: 0 24px;
+}
+
+.home-left {
+  flex: 2;
+}
+
+.home-right {
+  flex: 1;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+@media (max-width: 900px) {
+  .home-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .home-right {
+    max-width: 100%;
+    min-width: 0;
+  }
 }
 
 @media (max-width: 600px) {
