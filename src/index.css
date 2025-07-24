@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: #212121;
-  background-color: rgba(255,255,255,0.87);
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,3 +28,11 @@ h1 {
   line-height: 1.1;
 }
  */
+
+
+ body{
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+ }

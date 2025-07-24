@@ -1,13 +1,18 @@
-import React from 'react'
-import Home from '../pages/Home'
-import Topbar from '../components/common/Topbar'
-const HomeLayout = () => {
-  return (
-    <>
-    <div><Topbar/></div>
-    <div><Home/></div>
-    </>
-  )
-}
+import React, { useMemo, useState } from "react";
+import Home from "../Pages/Home";
+import { getCurrentUser } from "../api/FirestoreAPIs";
+import Topbar from "../components/common/Topbar";
 
-export default HomeLayout
+export default function HomeLayout() {
+  const [currentUser, setCurrentUser] = useState({});
+
+  useMemo(() => {
+    getCurrentUser(setCurrentUser);
+  }, []);
+  return (
+    <div>
+      <Topbar currentUser={currentUser} />
+      <Home currentUser={currentUser} />
+    </div>
+  );
+}

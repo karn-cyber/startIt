@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import GoogleButton from 'react-google-button'
 import { RegisterAPI, GoogleSignAPI } from '../api/AuthAPI';
 import "../Sass/LoginComponent.scss";
-import startitSmall from "../assets/startitSmall.svg";
+// import startitSmall from "../assets/startitSmall.svg";
 import startitLogoFull from '/Users/neelanshu./startit/src/assets/StartitLogoFull.svg'
 import { useNavigate } from 'react-router-dom';
 import {toast} from "react-toastify";
@@ -16,10 +16,11 @@ export default function RegisterComponent() {
     password: ''
   });
 
-  const login = async () => {
+  const register = async () => {
     try {
       let res = await RegisterAPI(credentials.email, credentials.password);
       toast.success("Accout Created successfully!");
+      localStorage.setItem("userEmail", res.user.email);
       navigate("/homepage");
     } catch (err) {
       console.error("Account Creation Failed", err.message);
@@ -27,9 +28,9 @@ export default function RegisterComponent() {
     }
   };
 
-  const googleSignIn = () => {
-    let response = GoogleSignAPI();
-    console.log(response);
+  const googleSignIn = async () => {
+    let response = await GoogleSignAPI();
+    localStorage.setItem("userEmail", response.user.email);
     navigate("/homepage");
   };
 
@@ -46,6 +47,13 @@ export default function RegisterComponent() {
 
           <input
             className="auth-input"
+            type="name"
+            placeholder="Your Name"
+            value={credentials.name}
+            onChange={(e) => setCredentials({ ...credentials, name: e.target.value })}
+          />
+          <input
+            className="auth-input"
             type="email"
             placeholder="Email or Phone"
             value={credentials.email}
@@ -60,7 +68,7 @@ export default function RegisterComponent() {
             onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
           />
 
-          <button className="auth-button" onClick={login}>Join</button>
+          <button className="auth-button" onClick={register}>Join</button>
 
           
           <hr class = "hr-text" data-content="or"/>

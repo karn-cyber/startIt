@@ -1,4 +1,6 @@
-import {signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
+import {signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
+    signOut
+} from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 
 export const LoginAPI = (email,password) => { 
@@ -31,3 +33,14 @@ export const GoogleSignAPI = () => {
         return err;
     }
 }
+
+export const onLogout = async () => {
+    try {
+        await signOut(auth);
+        console.log("Logged out successfully");
+        // Optionally: window.location.reload() or navigate to login
+    } catch (err) {
+        console.error("Logout error:", err);
+        return err;
+    }
+};

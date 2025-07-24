@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import GoogleButton from 'react-google-button'
 import { LoginAPI, GoogleSignAPI } from '../api/AuthAPI';
 import "../Sass/LoginComponent.scss";
-import startitSmall from "../assets/startitSmall.svg";
+// import startitSmall from "../assets/startitSmall.svg";
 import startitLogoFull from '/Users/neelanshu./startit/src/assets/StartitLogoFull.svg'
 import { useNavigate } from 'react-router-dom';
 import {toast} from "react-toastify";
+import { CgSoftwareDownload } from 'react-icons/cg';
 // import navigate from '../helpers/useNavigate';
 
 export default function LoginComponent() {
@@ -20,16 +21,20 @@ export default function LoginComponent() {
     try {
       let res = await LoginAPI(credentials.email, credentials.password);
       toast.success("Signed In to StartIt successfully!");
+      localStorage.setItem("userEmail", res.user.email);
       navigate("/homepage");
+      
+      // localStorage.setItem("userEmail", res.user.email);
+      
     } catch (err) {
       console.error("Login Failed:", err.message);
       toast.error("Login failed. Please check your credentials.");
     }
   };
 
-  const googleSignIn = () => {
-    let response = GoogleSignAPI();
-    console.log(response);
+  const googleSignIn = async () => {
+    let response = await GoogleSignAPI();
+    localStorage.setItem("userEmail", response.user.email);
     navigate("/homepage");
   };
 

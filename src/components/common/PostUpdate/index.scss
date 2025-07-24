@@ -1,0 +1,53 @@
+.post-status-main{
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    }
+
+
+.post-status{
+    width:550px;
+    height:120px;
+    margin-top:30px;
+    border: 1px solid #b7b7b7;
+    border-radius: 7px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    }
+
+.open-post-modal{
+    width:80%;
+    height:50px;
+    text-align: left;
+    color:rgba(84,84,84,0.89);
+    background-color: white;
+    outline:none;
+    border:1px solid #b7b7b7;
+    border-radius:30px;
+    padding:15px;
+    cursor:pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    }
+
+.open-post-modal:hover{ 
+    background-color: #dcdbdb;
+   
+    }
+
+.post-feed{
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  gap: 20px;
+    
+    }
