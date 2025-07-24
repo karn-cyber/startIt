@@ -380,6 +380,28 @@
   display: none;
 }
 
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.connection-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.profile-btn.disabled {
+  background: #ccc;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.profile-btn.disabled:hover {
+  background: #ccc;
+}
+
 @media (max-width: 900px) {
   .profile-content-sections {
     flex-direction: column;
