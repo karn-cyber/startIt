@@ -1,8 +1,7 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import './index.scss';
 import ModalComponent from '../Modal';
-import { getCurrentUser } from '../../../helpers/usersHelper';
-import { addPost, getAllPosts } from '../../../api/FirestoreAPIs';
+import { postStatus, getStatus } from '../../../api/FirestoreAPIs';
 import PostCard from '../PostCard';
 import { toast } from 'react-toastify';
 const PostStatus = () => {
@@ -12,6 +11,10 @@ const PostStatus = () => {
   const [allStatuses, setAllStatus] = useState([]);
   const [mediaFiles, setMediaFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
+
+  const getCurrentTimeStamp = (format) => {
+    return new Date().toLocaleString();
+  };
 
   const sendStatus = async() => {
     setUploading(true);
@@ -52,7 +55,7 @@ const PostStatus = () => {
 
       <div className="post-feed">
         {allStatuses.map((posts) => {
-        return <PostCard posts={posts} />;
+        return <PostCard posts={posts} key={posts.id} />;
         })}
       </div>
     </>
