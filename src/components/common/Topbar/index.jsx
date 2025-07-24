@@ -49,7 +49,8 @@ const Topbar = () => {
         onClick={() => goToRoute('/connections')}/>
         <IoNotificationsOutline className="topbar-icon" size={28} title="Notifications"/>
         <LuMessageCircleMore className="topbar-icon" size={28} title="Messages" />
-        <IoBriefcase className="topbar-icon" size={28} title="Jobs" />
+        <IoBriefcase className="topbar-icon" size={28} title="Jobs" 
+        onClick={() => goToRoute('/jobs')}/>
       </div>
         <AiOutlineUser className="user-logo" size={28} onClick={displayPopup} title="user-logo" />     
       </div>

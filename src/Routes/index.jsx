@@ -5,6 +5,7 @@ import HomeLayout from "../Layouts/HomeLayout";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import Connections from "../pages/Connections";
+import Jobs from "../pages/Jobs";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "connections",
         element: <Connections />,
+      },
+      {
+        path: "jobs",
+        element: <Jobs />,
       },
     ],
   },
