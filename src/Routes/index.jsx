@@ -4,6 +4,7 @@ import Register from "../pages/Register";
 import HomeLayout from "../Layouts/HomeLayout";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
+import UserProfile from "../pages/UserProfile";
 import Connections from "../pages/Connections";
 import Jobs from "../pages/Jobs";
 
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "profile/:userEmail",
+        element: <UserProfile />,
       },
       {
         path: "connections",
