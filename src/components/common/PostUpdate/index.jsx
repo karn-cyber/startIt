@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import {postStatus, getStatus} from "../../../api/FirestoreAPIs";
-import '/Users/neelanshu./startit/src/components/common/PostUpdate/index.scss';
-import ModalComponent from "../Modal";
+import React, { useMemo, useState, useEffect } from 'react';
+import './index.scss';
+import ModalComponent from '../Modal';
+import { getCurrentUser } from '../../../helpers/usersHelper';
+import { addPost, getAllPosts } from '../../../api/FirestoreAPIs';
 import PostCard from '../PostCard';
-import {getCurrentTimeStamp} from '../../../helpers/useMoment';
+import { toast } from 'react-toastify';
 const PostStatus = () => {
   let userEmail = localStorage.getItem("userEmail");
   const [modalOpen, setModalOpen] = useState(false);
