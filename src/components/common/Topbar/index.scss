@@ -1,22 +1,36 @@
 .topbar-main {
-  width: 100%;
+  width: 99%;
   height: 60px;
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: rgba(255, 255, 255, 0.95);
   display: flex;
   align-items: center;
-  padding: 0 24px; 
-  gap: 40px; 
+  padding: 0 12px; 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex: 1;
 }
 
 .logo-full {
-  height: 36px;
+  height: 45px;
   width: auto;
+  margin-left:20px;
+  flex-shrink: 0;
 }
 
 .search-container {
   position: relative;
   flex: 1;
-  max-width: 280px;
+  max-width: 270px;
 
   .search-wrapper {
     position: relative;
@@ -25,20 +39,21 @@
 
   .search-input {
     width: 100%;
-    padding: 8px 12px 8px 40px;
+    padding: 10px 12px 10px 40px;
     border: 1px solid #e1e5e9;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 6px;
+    font-size: 15px;
     background: #eef3f8;
     color: rgba(0,0,0,0.9);
     outline: none;
     transition: all 0.15s ease;
     box-sizing: border-box;
+    height: 40px;
 
     &:focus {
       background: white;
-      border-color: #0a66c2;
-      box-shadow: 0 0 0 1px #0a66c2;
+      border-color: #ff5900;
+      box-shadow: 0 0 0 2px rgba(255, 89, 0, 0.2);
     }
 
     &::placeholder {
@@ -61,79 +76,258 @@
 .topbar-icons {
   display: flex;
   align-items: center;
-  gap: 24px;
-  background-color: white;
+  gap: 12px;
 }
 
 .topbar-icon {
-  font-size: 24px;
+  font-size: 18px;
   color: #5f5f5f;       
   cursor: pointer;
-  transition: color 0.2s ease;
-  background-color: white;
+  transition: all 0.2s ease;
+  padding: 3px;
+  border-radius: 6px;
+  position: relative;
 
   &:hover {
-    color: #ff5900;     
+    color: #ff5900;
+    background: rgba(255, 89, 0, 0.1);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 
 .user-logo {
-  width: 40px;
-  position: absolute;
-  right: 40px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
   cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  margin-left: 12px;
+  flex-shrink: 0;
+  
+  &:hover {
+    border-color: #ff5900;
+    transform: scale(1.05);
+  }
 }
 
-@media (max-width: 900px) {
+/* Tablet Landscape */
+@media (max-width: 1024px) {
   .topbar-main {
+    width: 98%;
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .search-container {
+    max-width: 240px;
+  }
+  
+  .topbar-nav {
+    gap: 20px;
+  }
+  
+  .topbar-icons {
+    gap: 20px;
+  }
+  
+  .user-logo {
+    margin-left: 20px;
+  }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+  .topbar-main {
+    width: 98%;
+    height: 56px;
     gap: 16px;
-    padding: 0 10px;
+    padding: 0 16px;
+  }
+  
+  .logo-full {
+    height: 30px;
   }
   
   .search-container {
     max-width: 200px;
+    
+    .search-input {
+      font-size: 13px;
+      padding: 7px 10px 7px 35px;
+    }
+    
+    .search-icon {
+      font-size: 14px;
+      left: 10px;
+    }
+  }
+  
+  .topbar-nav {
+    gap: 16px;
+  }
+  
+  .topbar-icons {
+    gap: 16px;
+  }
+  
+  .topbar-icon {
+    font-size: 20px;
+    padding: 6px;
+  }
+  
+  .user-logo {
+    width: 28px;
+    height: 28px;
+    margin-left: 16px;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 640px) {
+  .topbar-main {
+    width: 98%;
+    height: 52px;
+    gap: 12px;
+    padding: 0 12px;
+  }
+  
+  .logo-full {
+    height: 26px;
+  }
+  
+  .search-container {
+    max-width: 160px;
+    
+    .search-input {
+      font-size: 12px;
+      padding: 6px 8px 6px 30px;
+    }
+    
+    .search-icon {
+      font-size: 13px;
+      left: 8px;
+    }
   }
   
   .topbar-icons {
     gap: 12px;
   }
+  
+  .topbar-icon {
+    font-size: 18px;
+    padding: 4px;
+  }
+  
+  .user-logo {
+    width: 26px;
+    height: 26px;
+  }
 }
 
-@media (max-width: 600px) {
+/* Mobile Portrait - LinkedIn Style */
+@media (max-width: 480px) {
   .topbar-main {
+    width: 97%;
+    height: 52px;
+    // padding: 0 12px;
+    // gap: 12px;
+    justify-content: space-between;
+  }
+  
+  .logo-full {
+    height: 34px;
+    flex-shrink: 0;
+  }
+  
+  .search-container {
+    display: none;
+  }
+  
+  .topbar-nav {
+    gap: 0;
+    margin-left: 0;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .topbar-icons {
+    display: flex;
+    gap: 0;
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: calc(100% - 80px);
+  }
+  
+  .topbar-icon {
+    font-size: 18px;
+    padding: 6px 4px;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    color: #666;
+    
+    &:hover {
+      color: #ff5900;
+      background: rgba(255, 89, 0, 0.1);
+      transform: none;
+    }
+    
+    &::after {
+      content: attr(title);
+      font-size: 9px;
+      font-weight: 400;
+      margin-top: 1px;
+      color: inherit;
+      text-transform: capitalize;
+      line-height: 1;
+    }
+  }
+  
+  .user-logo {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 360px) {
+  .topbar-main {
+    width: 98%;
     height: 48px;
-    gap: 8px;
-    padding: 0 4px;
+    padding: 0 8px;
   }
   
   .logo-full {
     height: 24px;
   }
   
-  .search-container {
-    max-width: 150px;
-    
-    .search-input {
-      font-size: 12px;
-      padding: 6px 8px 6px 32px;
-    }
-    
-    .search-icon {
-      font-size: 14px;
-      left: 8px;
-    }
-  }
-  
-  .topbar-icons {
-    gap: 6px;
-  }
-  
   .topbar-icon {
-    font-size: 18px;
+    font-size: 16px;
+    min-width: 36px;
+    height: 36px;
+    padding: 4px 2px;
+    
+    &::after {
+      font-size: 8px;
+      margin-top: 1px;
+    }
   }
   
   .user-logo {
-    width: 28px;
-    right: 10px;
+    width: 22px;
+    height: 22px;
   }
 }

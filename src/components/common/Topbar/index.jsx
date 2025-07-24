@@ -66,41 +66,68 @@ const Topbar = () => {
         </div>
       )}
 
-      <img className="logo-full" src={startitSmall} alt="StartIt Logo" />
-      
-      <div className="search-container">
-        <div className="search-wrapper">
-          <IoMdSearch className="search-icon" />
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchQuery}
-            onChange={handleSearchChange}
-            onFocus={handleSearchFocus}
-            onBlur={handleSearchBlur}
-            className="search-input"
-          />
+      <div className="topbar-left">
+        <img className="logo-full" src={startitSmall} alt="StartIt Logo" />
+        
+        <div className="search-container">
+          <div className="search-wrapper">
+            <IoMdSearch className="search-icon" />
+            <input
+              type="text"
+              placeholder="Search"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              onFocus={handleSearchFocus}
+              onBlur={handleSearchBlur}
+              className="search-input"
+            />
+          </div>
+          {showSearchDropdown && (
+            <SearchDropdown 
+              query={searchQuery} 
+              results={searchResults}
+              onClose={() => setShowSearchDropdown(false)}
+            />
+          )}
         </div>
-        {showSearchDropdown && (
-          <SearchDropdown 
-            query={searchQuery} 
-            results={searchResults}
-            onClose={() => setShowSearchDropdown(false)}
-          />
-        )}
       </div>
 
       <div className="topbar-icons">
-        <AiOutlineHome className="topbar-icon" size={28} title="Home" 
-        onClick={() => goToRoute('/homepage')}/>
-        <FaUsers className="topbar-icon" size={28} title="Connections" 
-        onClick={() => goToRoute('/connections')}/>
-        <IoNotificationsOutline className="topbar-icon" size={28} title="Notifications"/>
-        <LuMessageCircleMore className="topbar-icon" size={28} title="Messages" />
-        <IoBriefcase className="topbar-icon" size={28} title="Jobs" 
-        onClick={() => goToRoute('/jobs')}/>
+        <AiOutlineHome 
+          className="topbar-icon" 
+          size={28} 
+          title="Home" 
+          onClick={() => goToRoute('/homepage')}
+        />
+        <FaUsers 
+          className="topbar-icon" 
+          size={28} 
+          title="Network" 
+          onClick={() => goToRoute('/connections')}
+        />
+        <IoNotificationsOutline 
+          className="topbar-icon" 
+          size={28} 
+          title="Notifications"
+        />
+        <LuMessageCircleMore 
+          className="topbar-icon" 
+          size={28} 
+          title="Messages" 
+        />
+        <IoBriefcase 
+          className="topbar-icon" 
+          size={28} 
+          title="Jobs" 
+          onClick={() => goToRoute('/jobs')}
+        />
       </div>
-      <AiOutlineUser className="user-logo" size={28} onClick={displayPopup} title="user-logo" />     
+      <AiOutlineUser 
+        className="user-logo" 
+        size={28} 
+        onClick={displayPopup} 
+        title="Me" 
+      />
     </div>
     </>
   );
