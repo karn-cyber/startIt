@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GoogleButton from 'react-google-button'
 import { RegisterAPI, GoogleSignAPI } from '../api/AuthAPI';
-import { postUserData } from '../api/FirestoreAPIs';
+import { postUserData, checkAndCreateUser } from '../api/FirestoreAPIs';
 import "../Sass/LoginComponent.scss";
 // import startitSmall from "../assets/startitSmall.svg";
 import startitLogoFull from '/Users/neelanshu./startit/src/assets/StartitLogoFull.svg'
@@ -27,6 +27,7 @@ export default function RegisterComponent() {
           name: credentials.name,
         });
       }
+      await checkAndCreateUser({ email: res.user.email, name: credentials.name || '' });
       toast.success("Accout Created successfully!");
       localStorage.setItem("userEmail", res.user.email);
       navigate("/homepage");
@@ -38,6 +39,7 @@ export default function RegisterComponent() {
 
   const googleSignIn = async () => {
     let response = await GoogleSignAPI();
+    await checkAndCreateUser({ email: response.user.email, name: response.user.displayName || '' });
     localStorage.setItem("userEmail", response.user.email);
     navigate("/homepage");
   };

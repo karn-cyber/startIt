@@ -88,4 +88,12 @@ export const removeConnection = async (targetUserId, myId, targetEmail, myEmail)
   });
 };
   
+  export const checkAndCreateUser = async (user) => {
+  // user: { email, name }
+  const snapshot = await getDocs(userRef);
+  const exists = snapshot.docs.some(doc => doc.data().email === user.email);
+  if (!exists) {
+    await addDoc(userRef, user);
+  }
+};
        

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { getCurrentUser, getAllUsers, sendConnectionRequest, acceptConnectionRequest, removeConnection } from '../api/FirestoreAPIs';
 import Loader from '../components/common/Loader';
 import './Connections.scss';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebaseConfig';
+import { useNavigate } from 'react-router-dom';
 
 const Connections = () => {
   const [user, setUser] = useState(null);
@@ -9,8 +12,14 @@ const Connections = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const userEmail = localStorage.getItem('userEmail');
+  const navigate = useNavigate();
 
   useEffect(() => {
+    onAuthStateChanged(auth, (res) => {
+      if (!res?.accessToken) {
+        navigate('/');
+      }
+    });
     getCurrentUser((userData) => {
       setUser(userData);
     });
