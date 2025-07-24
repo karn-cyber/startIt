@@ -5,6 +5,7 @@ import { doc, updateDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import './ProfileComponent.scss';
 import Loader from './common/Loader';
+import Footer from './common/Footer';
 
 const ProfileComponent = () => {
   const [user, setUser] = useState(null);
@@ -246,6 +247,7 @@ const ProfileComponent = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

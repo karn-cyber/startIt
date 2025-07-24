@@ -1,9 +1,11 @@
-.home-container{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-
+.home-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
+
 @media (max-width: 600px) {
   .home-component {
     padding: 0 2px;
