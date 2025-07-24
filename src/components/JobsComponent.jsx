@@ -175,58 +175,7 @@ const JobsComponent = () => {
           postedBy: 'External',
           createdAt: new Date(Date.now() - 432000000).toISOString()
         },
-        {
-          id: 'mock7',
-          title: 'Data Scientist',
-          company: 'Analytics Pro',
-          location: 'Boston, MA',
-          type: 'Full-time',
-          description: 'Analyze large datasets to extract insights and build predictive models. Work with machine learning and statistical analysis.',
-          requirements: 'Python, SQL, Machine Learning, Statistics, 3+ years experience',
-          salary: '$120,000 - $155,000',
-          applicationUrl: 'https://example.com/apply/data-scientist',
-          postedBy: 'External',
-          createdAt: new Date(Date.now() - 518400000).toISOString()
-        },
-        {
-          id: 'mock8',
-          title: 'UI/UX Designer',
-          company: 'Creative Agency',
-          location: 'Portland, OR',
-          type: 'Full-time',
-          description: 'Design intuitive user interfaces and experiences. Create wireframes, prototypes, and collaborate with development teams.',
-          requirements: 'Figma, Adobe Creative Suite, Prototyping, 2+ years experience',
-          salary: '$85,000 - $115,000',
-          applicationUrl: 'https://example.com/apply/designer',
-          postedBy: 'External',
-          createdAt: new Date(Date.now() - 604800000).toISOString()
-        },
-        {
-          id: 'mock9',
-          title: 'Software Engineer Intern',
-          company: 'TechGiant',
-          location: 'Remote',
-          type: 'Internship',
-          description: 'Join our summer internship program and work on real projects with experienced mentors. Great learning opportunity.',
-          requirements: 'Computer Science student, Programming fundamentals, Eager to learn',
-          salary: '$25 - $35/hour',
-          applicationUrl: 'https://example.com/apply/intern',
-          postedBy: 'External',
-          createdAt: new Date(Date.now() - 691200000).toISOString()
-        },
-        {
-          id: 'mock10',
-          title: 'Product Manager',
-          company: 'InnovateCorp',
-          location: 'Chicago, IL',
-          type: 'Full-time',
-          description: 'Lead product development from conception to launch. Work with cross-functional teams to deliver exceptional products.',
-          requirements: 'Product Management, Agile, Analytics, 4+ years experience',
-          salary: '$140,000 - $180,000',
-          applicationUrl: 'https://example.com/apply/pm',
-          postedBy: 'External',
-          createdAt: new Date(Date.now() - 777600000).toISOString()
-        }
+        
       ] : [];
       
       setJobs([...userJobs, ...apiJobs, ...mockJobs]);
