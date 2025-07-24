@@ -3,8 +3,7 @@ import GoogleButton from 'react-google-button'
 import { LoginAPI, GoogleSignAPI } from '../api/AuthAPI';
 import { checkAndCreateUser } from '../api/FirestoreAPIs';
 import "../Sass/LoginComponent.scss";
-// import startitSmall from "../assets/startitSmall.svg";
-import startitLogoFull from '/Users/neelanshu./startit/src/assets/StartitLogoFull.svg'
+import startitLogoFull from '../assets/StartitLogoFull.svg'
 import { useNavigate } from 'react-router-dom';
 import {toast} from "react-toastify";
 import { CgSoftwareDownload } from 'react-icons/cg';

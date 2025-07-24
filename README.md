@@ -258,8 +258,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact & Support
 
-- **Website**: [https://startit.app](https://startit.app)
-- **Email**: support@startit.app
+- **Website**: [https://start-b763wpfcl-karn-cybers-projects.vercel.app](https://start-b763wpfcl-karn-cybers-projects.vercel.app)
+- **Email**: neelanshu.2024@nst.rishihood.edu.in
 - **Twitter**: [@StartItApp](https://twitter.com/StartItApp)
 - **LinkedIn**: [StartIt Official](https://linkedin.com/company/startit-app)
 - **Discord**: [Join our community](https://discord.gg/startit)
