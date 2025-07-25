@@ -103,11 +103,13 @@ const Topbar = () => {
           className="topbar-icon" 
           size={28} 
           title="Notifications"
+          onClick={() => goToRoute('/notifications')}
         />
         <LuMessageCircleMore 
           className="topbar-icon" 
           size={28} 
           title="Messages" 
+          onClick={() => goToRoute('/messages')}
         />
         <IoBriefcase 
           className="topbar-icon" 

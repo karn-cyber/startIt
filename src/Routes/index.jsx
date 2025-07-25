@@ -8,6 +8,8 @@ import UserProfile from "../pages/UserProfile";
 import Connections from "../pages/Connections";
 import Jobs from "../pages/Jobs";
 import About from "../pages/About";
+import ComingSoon from "../pages/ComingSoon";
+import Settings from "../pages/Settings";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +47,18 @@ export const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "notifications",
+        element: <ComingSoon feature="Notifications" />,
+      },
+      {
+        path: "messages",
+        element: <ComingSoon feature="Messages" />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
       },
     ],
   },
