@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getCurrentUser, getAllUsers, sendConnectionRequest, acceptConnectionRequest, removeConnection } from '../api/FirestoreAPIs';
 import Loader from '../components/common/Loader';
+import NewsSection from '../components/common/NewsSection';
 import './Connections.scss';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
@@ -198,6 +199,8 @@ const Connections = () => {
         </div>
 
         <div className="connections-sidebar">
+          <NewsSection />
+          
           {suggestions.length > 0 && (
             <div className="sidebar-card">
               <div className="card-header">

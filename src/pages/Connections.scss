@@ -281,32 +281,39 @@
 }
 
 .connections-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .news-section {
+    margin: 0;
+  }
+
   .sidebar-card {
     background: #fefefe;
     border-radius: 8px;
     box-shadow: 0 0 0 1px rgba(255, 89, 0, 0.1), 0 2px 3px rgba(0,0,0,0.1);
-    margin-bottom: 16px;
     overflow: hidden;
 
     .card-header {
-      padding: 16px 16px 0 16px;
+      padding: 12px 12px 0 12px;
       
       h3 {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 600;
         color: #2c2c2c;
-        margin: 0 0 8px 0;
+        margin: 0 0 6px 0;
       }
     }
 
     .card-content {
-      padding: 0 16px 16px 16px;
+      padding: 0 12px 12px 12px;
     }
 
     .suggestion-item {
       display: flex;
       align-items: center;
-      padding: 8px 0;
+      padding: 6px 0;
       border-bottom: 1px solid #f0f0f0;
 
       &:last-child {
@@ -314,8 +321,8 @@
       }
 
       .suggestion-photo {
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         margin-right: 8px;
         object-fit: cover;
@@ -326,29 +333,36 @@
         min-width: 0;
 
         .suggestion-name {
-          font-size: 14px;
+          font-size: 12px;
           font-weight: 600;
           color: #2c2c2c;
           margin: 0 0 2px 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .suggestion-headline {
-          font-size: 12px;
+          font-size: 10px;
           color: #666666;
           margin: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
 
       .suggestion-btn {
-        padding: 4px 12px;
-        border-radius: 16px;
-        font-size: 12px;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 10px;
         font-weight: 600;
         background: transparent;
         color: #ff5900;
         border: 1px solid #ff5900;
         cursor: pointer;
         transition: all 0.15s ease;
+        white-space: nowrap;
 
         &:hover {
           background: rgba(255, 89, 0, 0.1);
@@ -380,5 +394,319 @@
     font-size: 14px;
     margin: 0;
     line-height: 1.33;
+  }
+}
+
+@media (max-width: 1200px) {
+  .connections-page {
+    padding: 20px 12px;
+  }
+  
+  .connections-content {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .connections-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .connections-sidebar {
+    order: -1;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    
+    .news-section {
+      min-width: 280px;
+      flex-shrink: 0;
+    }
+    
+    .sidebar-card {
+      min-width: 280px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .connections-page {
+    padding: 16px 8px;
+  }
+  
+  .connections-header {
+    padding: 16px;
+    margin-bottom: 12px;
+    
+    h1 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    
+    .connections-count {
+      font-size: 13px;
+    }
+  }
+  
+  .connections-searchbar {
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    
+    input {
+      padding: 10px 12px 10px 36px;
+      font-size: 14px;
+    }
+  }
+  
+  .connections-tabs {
+    .tab {
+      padding: 12px 8px;
+      font-size: 13px;
+    }
+  }
+  
+  .connection-card {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .connection-photo {
+    width: 48px;
+    height: 48px;
+    margin-right: 0;
+    align-self: center;
+  }
+  
+  .connection-info {
+    text-align: center;
+    width: 100%;
+    
+    .connection-name {
+      font-size: 15px;
+    }
+    
+    .connection-headline {
+      font-size: 13px;
+    }
+    
+    .connection-status {
+      font-size: 11px;
+      justify-content: center;
+    }
+  }
+  
+  .connection-actions {
+    width: 100%;
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  .connection-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 70px;
+  }
+  
+  .sidebar-card {
+    .card-header {
+      padding: 12px 12px 0 12px;
+      
+      h3 {
+        font-size: 15px;
+      }
+    }
+    
+    .card-content {
+      padding: 0 12px 12px 12px;
+    }
+    
+    .suggestion-item {
+      padding: 6px 0;
+      
+      .suggestion-photo {
+        width: 36px;
+        height: 36px;
+      }
+      
+      .suggestion-info {
+        .suggestion-name {
+          font-size: 13px;
+        }
+        
+        .suggestion-headline {
+          font-size: 11px;
+        }
+      }
+      
+      .suggestion-btn {
+        padding: 3px 8px;
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .connections-page {
+    padding: 12px 6px;
+  }
+  
+  .connections-header {
+    padding: 12px;
+    
+    h1 {
+      font-size: 18px;
+    }
+  }
+  
+  .connections-searchbar {
+    padding: 10px 12px;
+    
+    input {
+      padding: 8px 10px 8px 32px;
+      font-size: 13px;
+    }
+    
+    .search-icon {
+      left: 10px;
+      font-size: 14px;
+    }
+  }
+  
+  .connections-tabs {
+    .tab {
+      padding: 10px 6px;
+      font-size: 12px;
+    }
+  }
+  
+  .connection-card {
+    padding: 10px 12px;
+  }
+  
+  .connection-photo {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .connection-info {
+    .connection-name {
+      font-size: 14px;
+    }
+    
+    .connection-headline {
+      font-size: 12px;
+    }
+  }
+  
+  .connection-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+    min-width: 60px;
+  }
+  
+  .empty-state {
+    padding: 32px 16px;
+    
+    .empty-icon {
+      font-size: 36px;
+    }
+    
+    h3 {
+      font-size: 18px;
+    }
+    
+    p {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .connections-page {
+    padding: 10px 4px;
+  }
+  
+  .connections-header {
+    padding: 10px;
+    
+    h1 {
+      font-size: 16px;
+    }
+    
+    .connections-count {
+      font-size: 12px;
+    }
+  }
+  
+  .connections-searchbar {
+    padding: 8px 10px;
+  }
+  
+  .connections-tabs {
+    .tab {
+      padding: 8px 4px;
+      font-size: 11px;
+    }
+  }
+  
+  .connection-card {
+    padding: 8px 10px;
+  }
+  
+  .connection-actions {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .connection-btn {
+    width: 100%;
+    padding: 6px;
+    font-size: 10px;
+  }
+  
+  .sidebar-card {
+    .suggestion-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 6px;
+      
+      .suggestion-btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .connections-page {
+    padding: 8px 2px;
+  }
+  
+  .connections-header {
+    padding: 8px;
+    
+    h1 {
+      font-size: 15px;
+    }
+  }
+  
+  .connections-tabs {
+    .tab {
+      padding: 6px 2px;
+      font-size: 10px;
+    }
+  }
+  
+  .connection-card {
+    padding: 6px 8px;
+  }
+  
+  .connection-photo {
+    width: 40px;
+    height: 40px;
   }
 }
