@@ -11,6 +11,14 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0,0,0,0.08);
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.popup-position {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1000;
 }
 
 .topbar-left {
@@ -99,6 +107,13 @@
   }
 }
 
+.user-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+
 .user-logo {
   width: 26px;
   height: 26px;
@@ -106,7 +121,6 @@
   cursor: pointer;
   transition: all 0.2s ease;
   border: 2px solid transparent;
-  margin-left: 12px;
   flex-shrink: 0;
   
   &:hover {
@@ -133,10 +147,6 @@
   
   .topbar-icons {
     gap: 20px;
-  }
-  
-  .user-logo {
-    margin-left: 20px;
   }
 }
 

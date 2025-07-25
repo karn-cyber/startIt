@@ -60,12 +60,6 @@ const Topbar = () => {
   return (
     <>
     <div className="topbar-main">
-      {popupVisible && (
-        <div className="popup-position">
-          <ProfilePopup closePopup={closePopup} />
-        </div>
-      )}
-
       <div className="topbar-left">
         <img className="logo-full" src={startitSmall} alt="StartIt Logo" />
         
@@ -122,12 +116,20 @@ const Topbar = () => {
           onClick={() => goToRoute('/jobs')}
         />
       </div>
-      <AiOutlineUser 
-        className="user-logo" 
-        size={28} 
-        onClick={displayPopup} 
-        title="Me" 
-      />
+      
+      <div className="user-section">
+        <AiOutlineUser 
+          className="user-logo" 
+          size={28} 
+          onClick={displayPopup} 
+          title="Me" 
+        />
+        {popupVisible && (
+          <div className="popup-position">
+            <ProfilePopup closePopup={closePopup} />
+          </div>
+        )}
+      </div>
     </div>
     </>
   );
