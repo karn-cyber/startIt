@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GoogleButton from 'react-google-button'
 import { RegisterAPI, GoogleSignAPI } from '../api/AuthAPI';
-import { checkAndCreateUser } from '../api/FirestoreAPIs';
+import { checkAndCreateUser, postUserData } from '../api/FirestoreAPIs';
 import "../Sass/LoginComponent.scss";
 import startitLogoFull from '../assets/StartitLogoFull.svg'
 import { useNavigate } from 'react-router-dom';
